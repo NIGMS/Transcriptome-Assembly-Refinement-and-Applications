@@ -1,0 +1,57 @@
+[
+    {
+        "question": "To execute a Jupyter notebook cell, what key(s) do you press?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Shift + Enter",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Control + Enter",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Right Arrow",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Enter",
+                "correct": false,
+                "feedback": "Incorrect"
+            }                  
+                    ] 
+    },
+    
+    {
+        "question": "Which of the icons indicates that the code cell has been run, and has completed running?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "[ ]:",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "[+]:",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "[27]:",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "[*]:",
+                "correct": false,
+                "feedback": "Incorrect"
+            }                  
+                    ] 
+    }
+    
+    
+]

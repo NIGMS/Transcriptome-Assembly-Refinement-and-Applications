@@ -1,0 +1,6 @@
+[
+    {
+        "front": "What would be a situation in which GLS would not be the right solution in terms of speed from start to end?",
+        "back": "One situation would be if each process was very quick and small. Consider the last 7 steps in the pipeline. These steps get completed 4x quicker in the local run, even though they are executed 1 by one. This is because it takes about 90 seconds for the provisioned machine to get booted up before they start working on the process task."
+    }
+]

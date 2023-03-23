@@ -1,0 +1,6 @@
+[
+    {
+        "front": "If the input reads were full size, rather than subsampled, what would you expect to be different about the timelines?",
+        "back": "You would expect the time saved to scale. For example, in a situation where you have 5 processes that each take 3 minutes, running them separately takes 15 minutes rather than 3 minutes when run in parallel, saving you 12 minutes. But, if each process takes 1 hr, then running them separately takes 5 hours rather than 1 hour when run in parallel, thus saving you 4 hours."
+    }
+]

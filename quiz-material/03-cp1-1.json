@@ -1,0 +1,6 @@
+[
+    {
+        "front": "Based on the three result files indicated above, what is surprising about the results?",
+        "back": "In all three of the results files above, the count numbers are far lower than expected for a complete transcriptome. For example, BUSCO was able to find pretty much 0 hits out of the entire transcriptome."
+    }
+]
