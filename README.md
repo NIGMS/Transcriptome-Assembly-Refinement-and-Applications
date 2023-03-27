@@ -12,6 +12,8 @@
 # Quick Overview
 This module teaches you how to perform a short-read RNA-seq Transcriptome Assembly with Google Cloud Platform using a Nextflow pipeline, and eventually using the Google Cloud Life Sciences API. In addition to the overview given in this README, you will find three Jupyter notebooks that teach you different components of RNA-seq in the cloud. 
 
+This module will cost you about $7.00 to run end to end, assuming you shutdown and delete all resources upon completion.
+
 
 ## Contents
 
@@ -45,8 +47,6 @@ Transcriptome assembly is the broad term used to describe the process of estimat
 > **Figure 2:** The process from raw reads to first transcriptome assembly.
 
 Once a new transcriptome is generated, assessed, and refined, it must be annotated with putative functional assignments to be of use in subsequent functional studies.  Functional annotation is accomplished through a combination of assignment of homology-based and ab initio methods. The most well-established homology-based processes are the combination of protein-coding sequence prediction followed by protein sequence alignment to databases of known proteins, especially those from human or common model organisms. Ab initio methods use computational models of various features (e.g., known protein domains, signal peptides, or peptide modification sites) to characterize either the transcript or its predicted protein product. This training module will cover multiple approaches to the annotation of assembled transcriptomes.
-
-***Finally, we will use the same test data set to carry out a basic differential expression analysis, using the assembled transcriptome as a target, and the source sequence files as input.***
 
 ## **Set Up** <a name="SU"></a>
 
