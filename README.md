@@ -49,39 +49,22 @@ Once a new transcriptome is generated, assessed, and refined, it must be annotat
 ***Finally, we will use the same test data set to carry out a basic differential expression analysis, using the assembled transcriptome as a target, and the source sequence files as input.***
 
 ## **Set Up** <a name="SU"></a>
-To begin work on this module, a new Vertex AI instance needs to be set up on Google Cloud Platform (GCP) to use the Jupyter notebooks. The following steps will walk you through the setup:
-#### Part 1: Enabling APIs and Creating Service Account
-1. Navigate to the home page of the project that you would like to be working in.
-2. Next, enable the following APIs by searching each of the GCP products and clicking the <img src="images/Setup2.png" height="18"> button.
->    - Cloud Life Sciences
->    - Compute Engine
->    - Cloud Storage
-3. Now, click the navigation menu <img src="images/Setup3.png" height="18"> button in the top-left and go to `IAM & Admin` and then `Service Accounts`.
-> <img src="images/Setup4.png" width="300" height="200">
-4. Select the <img src="images/Setup5.png" height="18"> button at the top.
-5. Set the Service account name to `nextflow-service-account`, then click <img src="images/Setup6.png" height="18">.
-6. Now, click the navigation menu <img src="images/Setup3.png" height="18"> button in the top-left and go to `IAM & Admin` and then `IAM` this time. 
-> <img src="images/Setup7.png" width="300" height="200">
-7. From this new page, click the <img src="images/Setup8.png" height="18"> button. A window should appear that looks like this:
-> <img src="images/Setup9.png" width="300" height="200">
-8. In the `New principals` field, start typing nextflow-service-account and the full name should drop down below the text bar (it will look like an email address). Click it. Then in the `Assign roles` area, select the following roles. Note that once you have selected one, click the <img src="images/Setup10.png" height="18"> to add another role. Once you have added the four roles, click the <img src="images/Setup11.png" height="18"> button.
->    - Cloud Life Sciences Workflows Runner
->    - Service Account User
->    - Service Usage Consumer
->    - Storage Admin
 
-**WARNING:** Please **do not create a service key**. API keys are generally not considered secure; they are typically accessible to clients, making it easy for someone to steal an API key. Once the key is stolen, it has no expiration, so it may be used indefinitely unless the project owner revokes or regenerates the key.
+#### Part 1: Setting up Environment
+
+To begin work on this module, you will need to set up your Google Cloud Platform (GCP), Vertex AI, and Jupyter notebook instance. Please begin by navigating to the [NIH Cloud Lab README](https://github.com/STRIDES/NIHCloudLabGCP). This will walk you through the basics of cloud platforms and provide links for setting up the environment. Once you have set up your Google Cloud account, please refer to images below to set up a Jupyter notebook instance under Vertex AI. Follow the steps and clone this repository using the Git command `git clone https://github.com/NIGMS/rnaAssemblyMDI` from a terminal window. Please make sure you only enter the link for the repository that you want to clone. There are other bioinformatics related learning modules available in the [NIGMS Repository](https://github.com/NIGMS). Following is an example of this current repository when cloned in Jupyter notebook using Git.
+
+#### Optional: *Creating a Nextflow Service Account*
+If you are using Nextflow outside of NIH CloudLab you must set up a service account and add your service account to your notebook permissions before creating the notebook. Follow section 2 of the accompanying [How To document](https://github.com/NIGMS/NIGMS-Sandbox/blob/main/docs/HowToCreateNextflowServiceAccount.md) for instructions. If you are executing this tutorial with an NIH CloudLab account your default Compute Engine service account will have all required IAM roles to run the nextflow portion.
 
 #### Part 2: Creating/Configuring Vertex AI Instance
-1. While still on the `IAM` page, copy the full name of your service account. It should look something like `nextflow-service-account@transpi-demo-project.iam.gserviceaccount.com` except with your own project name after the `@`.
-2. Now, click the navigation menu <img src="images/Setup3.png" height="18"> button in the top-left and go to `Vertex AI` and then `Workbench`. 
+1. Click the navigation menu <img src="images/Setup3.png" height="18"> button in the top-left and go to `Vertex AI` and then `Workbench`. 
 > <img src="images/Setup12.png" width="300" height="200">
-3. Click the <img src="images/Setup13.png" height="18"> button at the top followed by the `Python 3` option.
-4. From there, you can name your notebook and change the region to a region near you. Then, at the bottom of the pop-up window, click the <img src="images/Setup14.png" height="18"> button. This will allow for more fine-tuned adjustments to the notebook.
-5. `Details` and `Environment` have already been specified, so just click the <img src="images/Setup17.png" height="18"> button until the `Machine type` window. Under `Machine type`, go to `N1 high-memory` and then click `n1-highmem-16`. This will provide you with 16 vCPUs and 104 GB of RAM which may feel like a lot but is necessary for TransPi to run.
+2. Click the <img src="images/Setup13.png" height="18"> button at the top followed by the `Python 3` option.
+3. From there, you can name your notebook and change the region to a region near you. Then, at the bottom of the pop-up window, click the <img src="images/Setup14.png" height="18"> button. This will allow for more fine-tuned adjustments to the notebook.
+4. `Details` and `Environment` have already been specified, so just click the <img src="images/Setup17.png" height="18"> button until the `Machine type` window. Under `Machine type`, go to `N1 high-memory` and then click `n1-highmem-16`. This will provide you with 16 vCPUs and 104 GB of RAM which may feel like a lot but is necessary for TransPi to run.
 > <img src="images/Setup16.png" width="300" height="200">
-6. Now, keep clicking the <img src="images/Setup17.png" height="18"> button until the `IAM and security` window. Here, you need to un-select the `Use Compute Engine default service account`. Once it is un-selected, you can paste your nextflow-service-account email address.
-8. Everything is now configured and you can click the <img src="images/Setup18.png" height="18"> button to boot up your notebook for the first time.
+5. Everything is now configured and you can click the <img src="images/Setup18.png" height="18"> button to boot up your notebook for the first time.
 
 #### Part 3: Adding the Modules to the Notebook
 1. It may take a few minutes to fully provision your new notebook but once the circle next to your notebook changes from <img src="images/Setup19.png" height="18"> to <img src="images/Setup20.png" height="18"> it is ready to be opened.
@@ -89,9 +72,7 @@ To begin work on this module, a new Vertex AI instance needs to be set up on Goo
 3. Once it has finished loading, click the Terminal option in the Launcher.
 > <img src="images/Setup22.png" width="100" height="100">
 4. Next, paste the following git command to get a copy of everything within this repository, including all of the submodules.
->```
-git clone https://github.com/NIGMS/rnaAssemblyMDI
->```
+>```git clone https://github.com/NIGMS/rnaAssemblyMDI>```
 5. You are now all set!
 
 **WARNING:** When you are not using the notebook, stop it. This will prevent you from incurring costs while you are not using the notebook. You can do this in the same window as where you opened the notebook. Make sure that you have the notebook selected <img src="images/Setup23.png" height="18">. Then click the <img src="images/Setup24.png" height="18">. When you want to start up the notebook again, do the same process except click the <img src="images/Setup25.png" height="18"> instead.
