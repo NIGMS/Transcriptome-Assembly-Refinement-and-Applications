@@ -46,7 +46,7 @@ Below is what we hope will be a helpful list of terms that provide a reference t
 
 ## Acronyms
 **API** 
-: [Application Programming Interface](https://en.wikipedia.org/wiki/API) &rarr; This is the way that different programs can interact with each other.
+: [Application Programming Interface](https://en.wikipedia.org/wiki/API) &rarr; A way that different programs can interact with each other.
 
 **GFF**
 : [General Feature Format](https://en.wikipedia.org/wiki/General_feature_format) &rarr; One of several plain-text transfer files that are used to map features onto a genome data set. The file is tab-delimited.
