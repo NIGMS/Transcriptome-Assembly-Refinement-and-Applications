@@ -9,6 +9,8 @@
 2. From a *computational perspective*, demonstration of **computing using workflow management and container systems**.
 3. Also from a *computational perspective*, demonstration of **carrying out these analyses efficiently in a cloud environment.**
 
+
+
 # Quick Overview
 This module teaches you how to perform a short-read RNA-seq Transcriptome Assembly with Google Cloud Platform using a Nextflow pipeline, and eventually using the Google Cloud Life Sciences API. In addition to the overview given in this README, you will find three Jupyter notebooks that teach you different components of RNA-seq in the cloud. 
 
