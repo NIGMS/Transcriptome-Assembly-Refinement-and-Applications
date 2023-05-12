@@ -1,4 +1,4 @@
-<img src="./images/mdibl-compbio-core-logo-eurostyle.jpg" width=1020 height=262 alt="MDIBL Comp BioCore Logo">
+![MDIBL Comp BioCore Logo](./images/mdibl-compbio-core-logo-eurostyle.jpg)
 
 # MDI Biological Laboratory RNA-seq Transcriptome Assembly Module
 ---------------------------------
@@ -19,8 +19,8 @@ This module will cost you about $7.00 to run end to end, assuming you shutdown a
 
 ## Contents
 
-+ [Getting Started](#GS)
-+ [Biological Problem](#BP)
++ [Getting Started](#getting-started)
++ [Biological Problem](#biological-problem)
 + [Set Up](#SU)
 + [Software Requirements](#SOF)
 + [Workflow Diagrams](#WORK)
