@@ -27,6 +27,7 @@ This module will cost you about $7.00 to run end to end, assuming you shutdown a
 + [Data](#data)
 + [Troubleshooting](#troubleshooting)
 + [Funding](#funding)
++ [License for Data](#license-for-data)
 
 ## **Getting Started**
 This learning module includes tutorials and execution scripts in the form of Jupyter notebooks. The purpose of these tutorials is to help users familiarize themselves with cloud computing in the specific context of running bioinformatics workflows to prep for and to carry out a transcriptome assembly, refinement, and annotation. These tutorials do this by utilizing a recently published Nextflow workflow (TransPi [manuscript](https://onlinelibrary.wiley.com/doi/10.1111/1755-0998.13593), [repository](https://github.com/palmuc/TransPi), and [user guide](https://palmuc.github.io/TransPi/)), which manages and passes data between several state-of-the-art programs, carrying out the processes from initial quality control and normalization, through assembly with several tools, refinement and assessment, and finally annotation of the final putative transcriptome.
