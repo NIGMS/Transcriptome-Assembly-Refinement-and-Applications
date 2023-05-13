@@ -61,24 +61,24 @@ To begin work on this module, you will need to set up your Google Cloud Platform
 If you are using Nextflow outside of NIH CloudLab you must set up a service account and add your service account to your notebook permissions before creating the notebook. Follow section 2 of the accompanying [How To document](https://github.com/NIGMS/NIGMS-Sandbox/blob/main/docs/HowToCreateNextflowServiceAccount.md) for instructions. If you are executing this tutorial with an NIH CloudLab account your default Compute Engine service account will have all required IAM roles to run the nextflow portion.
 
 #### Part 2: Creating/Configuring Vertex AI Instance
-1. Click the navigation menu ![](images/Setup3.png) button in the top-left and go to `Vertex AI` and then `Workbench`. 
-![](images/Setup12.png)
-2. Click the ![](images/Setup13.png) button at the top followed by the `Python 3` option.
-3. From there, you can name your notebook and change the region to a region near you. Then, at the bottom of the pop-up window, click the ![](images/Setup14.png) button. This will allow for more fine-tuned adjustments to the notebook.
-4. `Details` and `Environment` have already been specified, so just click the ![](images/Setup17.png) button until the `Machine type` window. Under `Machine type`, go to `N1 high-memory` and then click `n1-highmem-16`. This will provide you with 16 vCPUs and 104 GB of RAM which may feel like a lot but is necessary for TransPi to run.
-![](images/Setup16.png)
-5. Everything is now configured and you can click the ![](images/Setup18.png) button to boot up your notebook for the first time.
+1. Click the navigation menu ![setup 3](images/Setup3.png) button in the top-left and go to `Vertex AI` and then `Workbench`. 
+![setup 12](images/Setup12.png)
+2. Click the ![setup 13](images/Setup13.png) button at the top followed by the `Python 3` option.
+3. From there, you can name your notebook and change the region to a region near you. Then, at the bottom of the pop-up window, click the ![setup 14](images/Setup14.png) button. This will allow for more fine-tuned adjustments to the notebook.
+4. `Details` and `Environment` have already been specified, so just click the ![setup 17](images/Setup17.png) button until the `Machine type` window. Under `Machine type`, go to `N1 high-memory` and then click `n1-highmem-16`. This will provide you with 16 vCPUs and 104 GB of RAM which may feel like a lot but is necessary for TransPi to run.
+![setup 16](images/Setup16.png)
+5. Everything is now configured and you can click the ![setup 18](images/Setup18.png) button to boot up your notebook for the first time.
 
 #### Part 3: Adding the Modules to the Notebook
-1. It may take a few minutes to fully provision your new notebook but once the circle next to your notebook changes from ![](images/Setup19.png) to ![](images/Setup20.png) it is ready to be opened.
-2. Click the ![](images/Setup21.png) button next to your notebook and wait for it to load up in a new tab.
+1. It may take a few minutes to fully provision your new notebook but once the circle next to your notebook changes from ![setup 19](images/Setup19.png) to ![setup 20](images/Setup20.png) it is ready to be opened.
+2. Click the ![setup 21](images/Setup21.png) button next to your notebook and wait for it to load up in a new tab.
 3. Once it has finished loading, click the Terminal option in the Launcher.
-![](images/Setup22.png)
+![setup 22](images/Setup22.png)
 4. Next, paste the following git command to get a copy of everything within this repository, including all of the submodules.
 >```git clone https://github.com/NIGMS/rnaAssemblyMDI>```
 5. You are now all set!
 
-**WARNING:** When you are not using the notebook, stop it. This will prevent you from incurring costs while you are not using the notebook. You can do this in the same window as where you opened the notebook. Make sure that you have the notebook selected ![](images/Setup23.png). Then click the ![](images/Setup24.png). When you want to start up the notebook again, do the same process except click the ![](images/Setup25.png) instead.
+**WARNING:** When you are not using the notebook, stop it. This will prevent you from incurring costs while you are not using the notebook. You can do this in the same window as where you opened the notebook. Make sure that you have the notebook selected ![setup 23](images/Setup23.png). Then click the ![setup 24](images/Setup24.png). When you want to start up the notebook again, do the same process except click the ![setup 25](images/Setup25.png) instead.
 
 ## **Software Requirements** 
 
@@ -89,7 +89,7 @@ All of the software requirements are taken care of and installed within [Submodu
 
 ## **Workflow Diagrams**
 
-![](images/transpi_workflow.png)
+![transpi workflow](images/transpi_workflow.png)
  
 **Figure 3:** Nextflow workflow diagram. (Rivera 2021).  
 Image Source: https://github.com/PalMuc/TransPi/blob/master/README.md
