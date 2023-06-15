@@ -1,4 +1,4 @@
-![MDIBL Comp BioCore Logo](./images/mdibl-compbio-core-logo-eurostyle.jpg)
+![course card](images/MDI-course-card.png)
 
 # MDI Biological Laboratory RNA-seq Transcriptome Assembly Module
 ---------------------------------
