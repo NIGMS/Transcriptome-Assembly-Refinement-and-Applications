@@ -75,7 +75,7 @@ If you are using Nextflow outside of NIH CloudLab you must set up a service acco
 3. Once it has finished loading, click the Terminal option in the Launcher.
 ![setup 22](images/Setup22.png)
 4. Next, paste the following git command to get a copy of everything within this repository, including all of the submodules.
->```git clone https://github.com/NIGMS/rnaAssemblyMDI>```
+>```git clone https://github.com/NIGMS/Transcriptome-Assembly-Refinement-and-Applications.git>```
 5. You are now all set!
 
 **WARNING:** When you are not using the notebook, stop it. This will prevent you from incurring costs while you are not using the notebook. You can do this in the same window as where you opened the notebook. Make sure that you have the notebook selected ![setup 23](images/Setup23.png). Then click the ![setup 24](images/Setup24.png). When you want to start up the notebook again, do the same process except click the ![setup 25](images/Setup25.png) instead.
