@@ -1,4 +1,4 @@
-![course card](images/MDI-course-card.png)
+![course card](images/MDI-course-card-2.png)
 
 # MDI Biological Laboratory RNA-seq Transcriptome Assembly Module
 ---------------------------------
