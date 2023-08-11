@@ -61,14 +61,22 @@ To begin work on this module, you will need to set up your Google Cloud Platform
 If you are using Nextflow outside of NIH CloudLab you must set up a service account and add your service account to your notebook permissions before creating the notebook. Follow section 2 of the accompanying [How To document](https://github.com/NIGMS/NIGMS-Sandbox/blob/main/docs/HowToCreateNextflowServiceAccount.md) for instructions. If you are executing this tutorial with an NIH CloudLab account your default Compute Engine service account will have all required IAM roles to run the nextflow portion.
 
 #### Part 2: Creating/Configuring Vertex AI Instance
-1. Click the navigation menu ![setup 3](images/Setup3.png) button in the top-left and go to `Vertex AI` and then `Workbench`. 
+Click the navigation menu ![setup 3](images/Setup3.png) button in the top-left and go to `Vertex AI` and then `Workbench`. 
 ![setup 12](images/Setup12.png)
-2. Click the ![setup 13](images/Setup13.png) button at the top followed by the `Python 3` option.
-3. From there, you can name your notebook and change the region to a region near you. Then, at the bottom of the pop-up window, click the ![setup 14](images/Setup14.png) button. This will allow for more fine-tuned adjustments to the notebook.
-4. `Details` and `Environment` have already been specified, so just click the ![setup 17](images/Setup17.png) button until the `Machine type` window. Under `Machine type`, go to `N1 high-memory` and then click `n1-highmem-16`. This will provide you with 16 vCPUs and 104 GB of RAM which may feel like a lot but is necessary for TransPi to run.
-![setup 16](images/Setup16.png)
-5. Everything is now configured and you can click the ![setup 18](images/Setup18.png) button to boot up your notebook for the first time.
 
+In your Vertex AI Workbench, click Create New. Make sure User-Managed Notebooks is highlighted, as shown in the screenshot below. 
+
+![Create New user managed notebook](images/Create_new_notebook.png)
+
+In the new instance window, scroll down and select Advanced Options
+
+![Select Advanced Options](images/Advanced_options.png)
+
+In the Environment tab, Select the appropriate operating system and environment. Make sure to click the Enable Idle Shutdown button in the Machine type tab as shown in the screenshot below. Finally, select the appropriate hardware in the Machine type tab.
+
+![Enable Idle Shutdown](images/Enable_auto_shutdown.png)
+
+Click Create to start your new instance.
 #### Part 3: Adding the Modules to the Notebook
 1. It may take a few minutes to fully provision your new notebook but once the circle next to your notebook changes from ![setup 19](images/Setup19.png) to ![setup 20](images/Setup20.png) it is ready to be opened.
 2. Click the ![setup 21](images/Setup21.png) button next to your notebook and wait for it to load up in a new tab.
