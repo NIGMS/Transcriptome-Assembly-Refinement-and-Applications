@@ -34,7 +34,7 @@ This learning module includes tutorials and execution scripts in the form of Jup
 
 Since the work is managed by this pipeline, the notebooks will focus on setting up and running the pipeline, followed by an examination of some of the wide range of outputs produced. We will also demonstrate how to retrieve the complete results directory so that users can examine more extensively on their own computing systems going step-by-step through specific workflows. These workflows cover the start to finish of basic bioinformatics analysis; starting from raw sequence data and carrying out the steps needed to generate a final assembled and annotated transcriptome.
 
-We also put an emphasis on understanding how workflows execute, using the specific example of the Nextflow (https://www.nextflow.io) workflow engine, and on using workflow engines as supported by cloud infrastructure, using the specific example of the Google Cloud Life Sciences API (https://cloud.google.com/life-sciences).
+We also put an emphasis on understanding how workflows execute, using the specific example of the Nextflow (https://www.nextflow.io) workflow engine, and on using workflow engines as supported by cloud infrastructure, using the specific example of the Google Batch (https://cloud.google.com/batch).
 
 ![technical infrastructure](/images/tech_infra_diag.png)  
 
@@ -61,18 +61,18 @@ To begin work on this module, you will need to set up your Google Cloud Platform
 If you are using Nextflow outside of NIH CloudLab you must set up a service account and add your service account to your notebook permissions before creating the notebook. Follow section 2 of the accompanying [How To document](https://github.com/NIGMS/NIGMS-Sandbox/blob/main/docs/HowToCreateNextflowServiceAccount.md) for instructions. If you are executing this tutorial with an NIH CloudLab account your default Compute Engine service account will have all required IAM roles to run the nextflow portion.
 
 #### Part 2: Creating/Configuring Vertex AI Instance
-Click the navigation menu ![setup 3](images/Setup3.png) button in the top-left and go to `Vertex AI` and then `Workbench`. 
+Click the navigation menu ![setup 3](images/Setup3.png) button in the top-left and go to **Vertex AI** and then **Workbench**. 
 ![setup 12](images/Setup12.png)
 
-In your Vertex AI Workbench, click Create New. Make sure User-Managed Notebooks is highlighted, as shown in the screenshot below. 
+In your Vertex AI Workbench, click **Create New**. Make sure User-Managed Notebooks is highlighted, as shown in the screenshot below. 
 
 ![Create New user managed notebook](images/Create_new_notebook.png)
 
-In the new instance window, scroll down and select Advanced Options
+In the new instance window, scroll down and select **Advanced Options**
 
 ![Select Advanced Options](images/Advanced_options.png)
 
-In the Environment tab, Select the appropriate operating system and environment. Make sure to click the Enable Idle Shutdown button in the Machine type tab as shown in the screenshot below. Finally, select the appropriate hardware in the Machine type tab.
+In the Environment tab, Select the appropriate operating system and environment. Make sure to click the **Enable Idle Shutdown** button in the Machine type tab as shown in the screenshot below. Finally, select **n1-highmen-16** from the Machine type tab.
 
 ![Enable Idle Shutdown](images/Enable_auto_shutdown.png)
 
