@@ -55,28 +55,17 @@ Once a new transcriptome is generated, assessed, and refined, it must be annotat
 
 #### Part 1: Setting up Environment
 
-To begin work on this module, you will need to set up your Google Cloud Platform (GCP), Vertex AI, and Jupyter notebook instance. Please begin by navigating to the [NIH Cloud Lab README](https://github.com/STRIDES/NIHCloudLabGCP). This will walk you through the basics of cloud platforms and provide links for setting up the environment. Once you have set up your Google Cloud account, please refer to images below to set up a Jupyter notebook instance under Vertex AI. Follow the steps and clone this repository using the Git command `git clone https://github.com/NIGMS/Transcriptome-Assembly-Refinement-and-Applications.git` from a terminal window. Please make sure you only enter the link for the repository that you want to clone. There are other bioinformatics related learning modules available in the [NIGMS Repository](https://github.com/NIGMS). Following is an example of this current repository when cloned in Jupyter notebook using Git.
+Follow the steps highlighted [here](https://github.com/STRIDES/NIHCloudLabGCP/blob/main/docs/vertexai.md) to create a new user-managed notebook in Vertex AI. Follow steps 1-8 and be especially careful to enable idle shutdown as highlighted in step 7. For this module you should select Debian 11 and Python3 in the Environment tab in step 5. In step 6 in the Machine type tab, select n1-highmem-16 from the dropdown box. This will provide you with 16 vCPUs and 104 GB of RAM which may feel like a lot but is necessary for TransPi to run.
 
 #### Optional: *Creating a Nextflow Service Account*
 If you are using Nextflow outside of NIH CloudLab you must set up a service account and add your service account to your notebook permissions before creating the notebook. Follow section 2 of the accompanying [How To document](https://github.com/NIGMS/NIGMS-Sandbox/blob/main/docs/HowToCreateNextflowServiceAccount.md) for instructions. If you are executing this tutorial with an NIH CloudLab account your default Compute Engine service account will have all required IAM roles to run the nextflow portion.
 
-#### Part 2: Creating/Configuring Vertex AI Instance
-1. Click the navigation menu ![setup 3](images/Setup3.png) button in the top-left and go to `Vertex AI` and then `Workbench`. 
-![setup 12](images/Setup12.png)
-2. Click the ![setup 13](images/Setup13.png) button at the top followed by the `Python 3` option.
-3. From there, you can name your notebook and change the region to a region near you. Then, at the bottom of the pop-up window, click the ![setup 14](images/Setup14.png) button. This will allow for more fine-tuned adjustments to the notebook.
-4. `Details` and `Environment` have already been specified, so just click the ![setup 17](images/Setup17.png) button until the `Machine type` window. Under `Machine type`, go to `N1 high-memory` and then click `n1-highmem-16`. This will provide you with 16 vCPUs and 104 GB of RAM which may feel like a lot but is necessary for TransPi to run.
-![setup 16](images/Setup16.png)
-5. Everything is now configured and you can click the ![setup 18](images/Setup18.png) button to boot up your notebook for the first time.
-
-#### Part 3: Adding the Modules to the Notebook
-1. It may take a few minutes to fully provision your new notebook but once the circle next to your notebook changes from ![setup 19](images/Setup19.png) to ![setup 20](images/Setup20.png) it is ready to be opened.
-2. Click the ![setup 21](images/Setup21.png) button next to your notebook and wait for it to load up in a new tab.
-3. Once it has finished loading, click the Terminal option in the Launcher.
+#### Part 2: Adding the Modules to the Notebook
+1. From the Launcher in your new VM, Click the Terminal option.
 ![setup 22](images/Setup22.png)
-4. Next, paste the following git command to get a copy of everything within this repository, including all of the submodules.
+2. Next, paste the following git command to get a copy of everything within this repository, including all of the submodules.
 ```git clone https://github.com/NIGMS/Transcriptome-Assembly-Refinement-and-Applications.git```
-5. You are now all set!
+3. You are now all set!
 
 **WARNING:** When you are not using the notebook, stop it. This will prevent you from incurring costs while you are not using the notebook. You can do this in the same window as where you opened the notebook. Make sure that you have the notebook selected ![setup 23](images/Setup23.png). Then click the ![setup 24](images/Setup24.png). When you want to start up the notebook again, do the same process except click the ![setup 25](images/Setup25.png) instead.
 
