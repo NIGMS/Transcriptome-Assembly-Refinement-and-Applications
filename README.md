@@ -7,7 +7,7 @@
 ## Three primary and interlinked learning goals:
 1. From a *biological perspective*, demonstration of the **process of transcriptome assembly** from raw RNA-seq data.
 2. From a *computational perspective*, demonstration of **computing using workflow management and container systems**.
-3. Also from a *computational perspective*, demonstration of **carrying out these analyses efficiently in a cloud environment.**
+3. Also from an *infrastructure perspective*, demonstration of **carrying out these analyses efficiently in a cloud environment.**
 
 
 
