@@ -12,7 +12,7 @@
 
 
 # Quick Overview
-This module teaches you how to perform a short-read RNA-seq Transcriptome Assembly with Google Cloud Platform using a Nextflow pipeline, and eventually using the Google Cloud Life Sciences API. In addition to the overview given in this README, you will find three Jupyter notebooks that teach you different components of RNA-seq in the cloud. 
+This module teaches you how to perform a short-read RNA-seq Transcriptome Assembly with Google Cloud Platform using a Nextflow pipeline, and eventually using the Google Batch API. In addition to the overview given in this README, you will find three Jupyter notebooks that teach you different components of RNA-seq in the cloud. 
 
 This module will cost you about $7.00 to run end to end, assuming you shutdown and delete all resources upon completion.
 
@@ -34,9 +34,9 @@ This learning module includes tutorials and execution scripts in the form of Jup
 
 Since the work is managed by this pipeline, the notebooks will focus on setting up and running the pipeline, followed by an examination of some of the wide range of outputs produced. We will also demonstrate how to retrieve the complete results directory so that users can examine more extensively on their own computing systems going step-by-step through specific workflows. These workflows cover the start to finish of basic bioinformatics analysis; starting from raw sequence data and carrying out the steps needed to generate a final assembled and annotated transcriptome.
 
-We also put an emphasis on understanding how workflows execute, using the specific example of the Nextflow (https://www.nextflow.io) workflow engine, and on using workflow engines as supported by cloud infrastructure, using the specific example of the Google Cloud Life Sciences API (https://cloud.google.com/life-sciences).
+We also put an emphasis on understanding how workflows execute, using the specific example of the Nextflow (https://www.nextflow.io) workflow engine, and on using workflow engines as supported by cloud infrastructure, using the specific example of the Google Batch API (https://cloud.google.com/batch).
 
-![technical infrastructure](/images/tech_infra_diag.png)  
+![technical infrastructure](/images/architecture_diagram.png)  
 
 **Figure 1:** The technical infrastructure diagram for this project.
 
@@ -55,16 +55,22 @@ Once a new transcriptome is generated, assessed, and refined, it must be annotat
 
 #### Part 1: Setting up Environment
 
-Follow the steps highlighted [here](https://github.com/STRIDES/NIHCloudLabGCP/blob/main/docs/vertexai.md) to create a new user-managed notebook in Vertex AI. Follow steps 1-8 and be especially careful to enable idle shutdown as highlighted in step 7. For this module you should select Debian 11 and Python3 in the Environment tab in step 5. In step 6 in the Machine type tab, select n1-highmem-16 from the dropdown box. This will provide you with 16 vCPUs and 104 GB of RAM which may feel like a lot but is necessary for TransPi to run.
+**Enable APIs and create a Nextflow Sercice Account**
 
-#### Optional: *Creating a Nextflow Service Account*
-If you are using Nextflow outside of NIH CloudLab you must set up a service account and add your service account to your notebook permissions before creating the notebook. Follow section 2 of the accompanying [How To document](https://github.com/NIGMS/NIGMS-Sandbox/blob/main/docs/HowToCreateNextflowServiceAccount.md) for instructions. If you are executing this tutorial with an NIH CloudLab account your default Compute Engine service account will have all required IAM roles to run the nextflow portion.
+If you are using Nextflow outside of NIH CloudLab you must enable the required APIs, set up a service account, and add your service account to your notebook permissions before creating the notebook. Follow sections 1 and 2 of the accompanying [how to document](https://github.com/NIGMS/NIGMS-Sandbox/blob/main/docs/HowToCreateNextflowServiceAccount.md) for instructions. If you are executing this tutorial with an NIH CloudLab account your default Compute Engine service account will have all required IAM roles to run the nextflow portion.
+
+**Create the Vertex AI Instance**
+
+Follow the steps highlighted [here](https://github.com/STRIDES/NIHCloudLabGCP/blob/main/docs/vertexai.md) to create a new user-managed notebook in Vertex AI. Follow steps 1-8 and be especially careful to enable idle shutdown as highlighted in step 7. For this module you should select **Debian 11** and **Python3** in the Environment tab in step 5. In step 6 in the Machine type tab, select **n1-highmem-16** from the dropdown box. This will provide you with 16 vCPUs and 104 GB of RAM which may feel like a lot but is necessary for TransPi to run.
+
 
 #### Part 2: Adding the Modules to the Notebook
+
 1. From the Launcher in your new VM, Click the Terminal option.
 ![setup 22](images/Setup22.png)
 2. Next, paste the following git command to get a copy of everything within this repository, including all of the submodules.
-```git clone https://github.com/NIGMS/Transcriptome-Assembly-Refinement-and-Applications.git```
+
+> ```git clone https://github.com/NIGMS/Transcriptome-Assembly-Refinement-and-Applications.git```
 3. You are now all set!
 
 **WARNING:** When you are not using the notebook, stop it. This will prevent you from incurring costs while you are not using the notebook. You can do this in the same window as where you opened the notebook. Make sure that you have the notebook selected ![setup 23](images/Setup23.png). Then click the ![setup 24](images/Setup24.png). When you want to start up the notebook again, do the same process except click the ![setup 25](images/Setup25.png) instead.
@@ -73,7 +79,7 @@ If you are using Nextflow outside of NIH CloudLab you must set up a service acco
 
 All of the software requirements are taken care of and installed within [Submodule_01_prog_setup.ipynb](./Submodule_01_prog_setup.ipynb). The key pieces of software needed are:
 1. [Nextflow workflow system](https://www.nextflow.io/): Nextflow is a workflow management software that TransPi is built for.
-2. [Google Life Sciences API](https://cloud.google.com/life-sciences/docs/reference/rest): GLS was enabled as part of the setup process and will be readily available when it is needed.
+2. [Google Batch API](https://cloud.google.com/batch/docs): Google Batch was enabled as part of the setup process and will be readily available when it is needed.
 3. [Nextflow TransPi Package](https://github.com/palmuc/TransPi): The rest of the software is all downloaded as part of the TransPi package. TransPi is a Nextflow pipeline that carries out many of the standard steps required for transcriptome assembly and annotation. The original TransPi is available from this GitHub [link](https://github.com/palmuc/TransPi). We have made various alterations to the TransPi package and so the TransPi files you will be using throughout this module will be our own altered version.
 
 ## **Workflow Diagrams**
@@ -89,12 +95,13 @@ Explanation of which notebooks execute which processes:
 + Notebook 1 ([Submodule_01_prog_setup.ipynb](./Submodule_01_prog_setup.ipynb)) is used for setting up the environment. It should only need to be run once per machine. (Note that our version of TransPi does not run the `precheck script`. To avoid the headache and wasted time, we have developed a workaround to skip that step.)
 + Notebook 2 ([Submodule_02_basic_assembly.ipynb](./Submodule_02_basic_assembly.ipynb)) carries out a complete run of the Nextflow TransPi assembly workflow on a modest sequence set, producing a small transcriptome.
 + Notebook 3 ([Submodule_03_annotation_only.ipynb](./Submodule_03_annotation_only.ipynb)) carries out an annotation-only run using a prebuilt, but more complete transcriptome.
-+ Notebook 4 ([Submodule_04_gls_assembly.ipynb](./Submodule_04_gls_assembly.ipynb)) carries out the workflow using the Google Cloud Life Sciences API.
++ Notebook 4 ([Submodule_04_google_batch_assembly.ipynb](./Submodule_04_google_batch_assembly.ipynb)) carries out the workflow using the Google Batch API.
++ Notebook 5 ([Submodule_05_Bonus_Notebook.ipynb](./Submodule_05_Bonus_Notebook.ipynb)) is a more hands-off notebook to test basic skills taught in this module.
 
 ## **Data** 
-The test dataset used in the majority of this module is a downsampled version of a dataset that can be obtained in its complete form from the SRA database (Bioproject [**PRJNA318296**](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA318296), GEO Accession [**GSE80221**](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE80221)). The data was originally generated by **Hartig et al., 2016**. We downsampled the data files in order to streamline the performance of the tutorials and stored them in a Google Cloud Storage bucket. The sub-sampled data, in individual sample files as well as a concatenated version of these files are available in our Google Cloud Storage bucket at `gs://mdibl-transpi-bucket/resources/seq2`.
+The test dataset used in the majority of this module is a downsampled version of a dataset that can be obtained in its complete form from the SRA database (Bioproject [**PRJNA318296**](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA318296), GEO Accession [**GSE80221**](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE80221)). The data was originally generated by **Hartig et al., 2016**. We downsampled the data files in order to streamline the performance of the tutorials and stored them in a Google Cloud Storage bucket. The sub-sampled data, in individual sample files as well as a concatenated version of these files are available in our Google Cloud Storage bucket at `gs://nigms-sandbox/nosi-inbremaine-storage/resources/seq2`.
 
-Additional datasets for demonstration of the annotation features of TransPi were obtained from the NCBI Transcriptome Shotgun Assembly archive. These files can be found in our Google Cloud Storage bucket at `gs://mdibl-transpi-bucket/resources/trans`.
+Additional datasets for demonstration of the annotation features of TransPi were obtained from the NCBI Transcriptome Shotgun Assembly archive. These files can be found in our Google Cloud Storage bucket at `gs://nigms-sandbox/nosi-inbremaine-storage/resources/trans`.
 - Microcaecilia dermatophaga 
     - Bioproject: [**PRJNA387587**](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA387587)
     - Originally generated by **Torres-Sánchez M et al., 2019**. 
@@ -104,6 +111,11 @@ Additional datasets for demonstration of the annotation features of TransPi were
 - Pseudacris regilla
     - Bioproject: [**PRJNA163143**](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA163143)
     - Originally generated by **Laura Robertson, USGS**. 
+
+The final submodule ([Submodule_05_Bonus_Notebook.ipynb](./Submodule_05_Bonus_Notebook.ipynb)) uses an additional dataset pulled from the SRA database. We are using the RNA-seq reads only and have subsampled and merged them to a collective 2 million reads. This is not a good idea for real analysis, but was done to reduce the costs and runtime. These files are avalible in our Google Cloud Storage bucket at `gs://nigms-sandbox/nosi-inbremaine-storage/resources/seq2`.
+- Apis mellifera
+    - Bioproject: [**PRJNA274674**](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA274674)
+    - Originally generated by **Galbraith DA et al., 2015**.
 
 ## **Troubleshooting**
 - If a quiz is not rendering:
