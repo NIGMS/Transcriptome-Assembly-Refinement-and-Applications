@@ -1,0 +1,6 @@
+[
+    {
+        "front": "At the start of this submodule, we were able to downsize this VM instance to a far more modest machine while still preparing to execute another run of TransPi, a program with high computational needs. Why are we able to do this?",
+        "back": "The GLS API operates as a conductor, outsourcing all of the computational needs to other machines. This leaves our JupyterLab VM instance with just the simple task of telling GLS API a few instructions on what needs to happen to provision each machine, and indicating what each machine needs to complete its task."
+    }
+]
