@@ -3,42 +3,24 @@
 # MDI Biological Laboratory RNA-seq Transcriptome Assembly Module
 ---------------------------------
 
-
-## Three primary and interlinked learning goals:
-1. From a *biological perspective*, demonstration of the **process of transcriptome assembly** from raw RNA-seq data.
-2. From a *computational perspective*, demonstration of **computing using workflow management and container systems**.
-3. Also from an *infrastructure perspective*, demonstration of **carrying out these analyses efficiently in a cloud environment.**
-
-
-
-# Quick Overview
-This module teaches you how to perform a short-read RNA-seq Transcriptome Assembly with Google Cloud Platform using a Nextflow pipeline, and eventually using the Google Batch API. In addition to the overview given in this README, you will find three Jupyter notebooks that teach you different components of RNA-seq in the cloud. 
-
-This module will cost you about $7.00 to run end to end, assuming you shutdown and delete all resources upon completion.
-
-
 ## Contents
 
-+ [Getting Started](#getting-started)
++ [Overview](#overview)
++ [Learning goals](#learning-goals)
 + [Biological Problem](#biological-problem)
-+ [Set Up](#set-up)
-+ [Software Requirements](#software-requirements)
 + [Workflow Diagrams](#workflow-diagrams)
 + [Data](#data)
 + [Troubleshooting](#troubleshooting)
 + [Funding](#funding)
 + [License for Data](#license-for-data)
 
-## **Getting Started**
-This learning module includes tutorials and execution scripts in the form of Jupyter notebooks. The purpose of these tutorials is to help users familiarize themselves with cloud computing in the specific context of running bioinformatics workflows to prep for and to carry out a transcriptome assembly, refinement, and annotation. These tutorials do this by utilizing a recently published Nextflow workflow (TransPi [manuscript](https://onlinelibrary.wiley.com/doi/10.1111/1755-0998.13593), [repository](https://github.com/palmuc/TransPi), and [user guide](https://palmuc.github.io/TransPi/)), which manages and passes data between several state-of-the-art programs, carrying out the processes from initial quality control and normalization, through assembly with several tools, refinement and assessment, and finally annotation of the final putative transcriptome.
+## Overview
+This module teaches you how to perform a short-read RNA-seq Transcriptome Assembly with a Cloud Computing Platform using a Nextflow pipeline. In addition to the overview given in this README, you will find README related to each platform (AWS, Google Cloud) and Jupyter notebooks that teach you different components of RNA-seq in the cloud. 
 
-Since the work is managed by this pipeline, the notebooks will focus on setting up and running the pipeline, followed by an examination of some of the wide range of outputs produced. We will also demonstrate how to retrieve the complete results directory so that users can examine more extensively on their own computing systems going step-by-step through specific workflows. These workflows cover the start to finish of basic bioinformatics analysis; starting from raw sequence data and carrying out the steps needed to generate a final assembled and annotated transcriptome.
-
-We also put an emphasis on understanding how workflows execute, using the specific example of the Nextflow (https://www.nextflow.io) workflow engine, and on using workflow engines as supported by cloud infrastructure, using the specific example of the Google Batch API (https://cloud.google.com/batch).
-
-![technical infrastructure](/images/architecture_diagram.png)  
-
-**Figure 1:** The technical infrastructure diagram for this project.
+## Learning goals:
+1. From a *biological perspective*, demonstration of the **process of transcriptome assembly** from raw RNA-seq data.
+2. From a *computational perspective*, demonstration of **computing using workflow management and container systems**.
+3. Also from an *infrastructure perspective*, demonstration of **carrying out these analyses efficiently in a cloud environment.**
 
 ## **Biological Problem**
 The combination of increased availability and reduced expense in obtaining high-throughput sequencing has made transcriptome profiling analysis (primarily with RNA-seq) a standard tool for the molecular characterization of widely disparate biological systems. Researchers working in common model organisms, such as mouse or zebrafish, have relatively easy access to the necessary resources (e.g., well-assembled genomes and large collections of predicted/verified transcripts), for the analysis and interpretation of their data. In contrast, researchers working on less commonly studied organisms and systems often must develop these resources for themselves.
@@ -50,37 +32,6 @@ Transcriptome assembly is the broad term used to describe the process of estimat
 **Figure 2:** The process from raw reads to first transcriptome assembly.
 
 Once a new transcriptome is generated, assessed, and refined, it must be annotated with putative functional assignments to be of use in subsequent functional studies.  Functional annotation is accomplished through a combination of assignment of homology-based and ab initio methods. The most well-established homology-based processes are the combination of protein-coding sequence prediction followed by protein sequence alignment to databases of known proteins, especially those from human or common model organisms. Ab initio methods use computational models of various features (e.g., known protein domains, signal peptides, or peptide modification sites) to characterize either the transcript or its predicted protein product. This training module will cover multiple approaches to the annotation of assembled transcriptomes.
-
-## **Set Up**
-
-#### Part 1: Setting up Environment
-
-**Enable APIs and create a Nextflow Sercice Account**
-
-If you are using Nextflow outside of NIH CloudLab you must enable the required APIs, set up a service account, and add your service account to your notebook permissions before creating the notebook. Follow sections 1 and 2 of the accompanying [how to document](https://github.com/NIGMS/NIGMS-Sandbox/blob/main/docs/HowToCreateNextflowServiceAccount.md) for instructions. If you are executing this tutorial with an NIH CloudLab account your default Compute Engine service account will have all required IAM roles to run the nextflow portion.
-
-**Create the Vertex AI Instance**
-
-Follow the steps highlighted [here](https://github.com/STRIDES/NIHCloudLabGCP/blob/main/docs/vertexai.md) to create a new user-managed notebook in Vertex AI. Follow steps 1-8 and be especially careful to enable idle shutdown as highlighted in step 7. For this module you should select **Debian 11** and **Python3** in the Environment tab in step 5. In step 6 in the Machine type tab, select **n1-highmem-16** from the dropdown box. This will provide you with 16 vCPUs and 104 GB of RAM which may feel like a lot but is necessary for TransPi to run.
-
-
-#### Part 2: Adding the Modules to the Notebook
-
-1. From the Launcher in your new VM, Click the Terminal option.
-![setup 22](images/Setup22.png)
-2. Next, paste the following git command to get a copy of everything within this repository, including all of the submodules.
-
-> ```git clone https://github.com/NIGMS/Transcriptome-Assembly-Refinement-and-Applications.git```
-3. You are now all set!
-
-**WARNING:** When you are not using the notebook, stop it. This will prevent you from incurring costs while you are not using the notebook. You can do this in the same window as where you opened the notebook. Make sure that you have the notebook selected ![setup 23](images/Setup23.png). Then click the ![setup 24](images/Setup24.png). When you want to start up the notebook again, do the same process except click the ![setup 25](images/Setup25.png) instead.
-
-## **Software Requirements** 
-
-All of the software requirements are taken care of and installed within [Submodule_01_prog_setup.ipynb](./Submodule_01_prog_setup.ipynb). The key pieces of software needed are:
-1. [Nextflow workflow system](https://www.nextflow.io/): Nextflow is a workflow management software that TransPi is built for.
-2. [Google Batch API](https://cloud.google.com/batch/docs): Google Batch was enabled as part of the setup process and will be readily available when it is needed.
-3. [Nextflow TransPi Package](https://github.com/palmuc/TransPi): The rest of the software is all downloaded as part of the TransPi package. TransPi is a Nextflow pipeline that carries out many of the standard steps required for transcriptome assembly and annotation. The original TransPi is available from this GitHub [link](https://github.com/palmuc/TransPi). We have made various alterations to the TransPi package and so the TransPi files you will be using throughout this module will be our own altered version.
 
 ## **Workflow Diagrams**
 
