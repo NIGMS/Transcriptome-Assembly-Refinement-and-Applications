@@ -1,6 +1,0 @@
-[
-    {
-        "front": "How is the GLS run able to complete the same exact tasks in a quicker amount of time?",
-        "back": "Parallelization. GLS can have specific computers do specific tasks. This means that if a task has all of the inputs necessary to run, then a new instance can start up for that specific process. There is no need to wait for any computational resources when using GLS."
-    }
-]

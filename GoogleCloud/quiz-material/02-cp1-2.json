@@ -1,6 +1,0 @@
-[
-    {
-        "front": "Consider the Gene Ontologies section of the TransPi_Report_joined.html. Why is this type of downstream analysis/annotation important?",
-        "back": "The ultimate goal is further to develop the transcriptome of a lesser-studied organism by defining/understanding the genes that we discover. Exact gene matches to other organisms would be ideal, however, it is usually not that simple. Perfect matches are not common, so models have been built to make predictions about the transcripts based on the known pattern of various gene characteristics. This does not give the complete answer, but it allows us to hone in on what the gene is and what its functions are. "
-    }
-]

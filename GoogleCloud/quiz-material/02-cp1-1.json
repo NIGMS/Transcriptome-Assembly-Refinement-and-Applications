@@ -1,6 +1,0 @@
-[
-    {
-        "front": "Consider the mapping results. Why would it make sense that the alignment rate would be higher in the Trinity transcriptome compared to the EviGene transcriptome?",
-        "back": "In the Trinity assembly there are fewer processes done to the data, meaning that it has had less manipulation done at the time of mapping. In the EviGene transcriptome, the assemblies have been reduced down to one transcriptome, but have had more manipulation, and thus, space for variation from the original reads. This however does not mean that the transcriptome is worse, but rather that it has been explored more, and likely has more information such as various isoforms of the same transcript."
-    }
-]

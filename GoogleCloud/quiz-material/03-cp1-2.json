@@ -1,6 +1,0 @@
-[
-    {
-        "front": "What does this new information about the data reveal about the annotation results?",
-        "back": "It is clear why the result found such few hits across the board. The researchers working on this project were intentionally targeting long non-coding (lnc) RNA sequences. Part of the process was to filter out all probable protein-coding genes meaning that these annotation tools would struggle to find hits."
-    }
-]
