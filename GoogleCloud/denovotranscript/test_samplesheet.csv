@@ -1,7 +1,0 @@
-sample,fastq_1,fastq_2
-SAMPLE_PAIRED_END,/home/jupyter/resources/seq2/SL94881_R1.fastq.gz,/home/jupyter/resources/seq2/SL94881_R2.fastq.gz
-SAMPLE_PAIRED_END,/home/jupyter/resources/seq2/SL94882_R1.fastq.gz,/home/jupyter/resources/seq2/SL94882_R2.fastq.gz
-SAMPLE_PAIRED_END,/home/jupyter/resources/seq2/SL94883_R1.fastq.gz,/home/jupyter/resources/seq2/SL94883_R2.fastq.gz
-SAMPLE_PAIRED_END,/home/jupyter/resources/seq2/SL94884_R1.fastq.gz,/home/jupyter/resources/seq2/SL94884_R2.fastq.gz
-SAMPLE_PAIRED_END,/home/jupyter/resources/seq2/SL94885_R1.fastq.gz,/home/jupyter/resources/seq2/SL94885_R2.fastq.gz
-SAMPLE_PAIRED_END,/home/jupyter/resources/seq2/SL94886_R1.fastq.gz,/home/jupyter/resources/seq2/SL94886_R2.fastq.gz
