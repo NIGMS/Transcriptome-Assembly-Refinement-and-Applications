@@ -22,7 +22,7 @@ The combination of increased availability and reduced expense in obtaining high-
 
 Transcriptome assembly is the broad term used to describe the process of estimating many (or ideally all) of an organism’s transcriptome based on the large-scale but fragmentary data provided by high-throughput sequencing. A "typical" RNA-seq dataset will consist of tens of millions of reads or read-pairs, with each contiguous read representing up to 150 nucleotides in the sequence. Complete transcripts, in contrast, typically range from hundreds to tens of thousands of nucleotides in length. In short, and leaving out the technical details, the process of assembling a transcriptome from raw reads (Figure 2) is to first make a "best guess" segregation of the reads into subsets that are most likely derived from one (or a small set of related/similar genes), and then for each subset, build a most-likely set of transcripts and genes.
 
-![basic transcriptome assembly](./images/basic_assembly.png)
+![basic transcriptome assembly](../images/basic_assembly.png)
 
 **Figure 2:** The process from raw reads to first transcriptome assembly.
 
@@ -30,7 +30,7 @@ Once a new transcriptome is generated, assessed, and refined, it must be annotat
 
 ## **Workflow Diagrams**
 
-![transpi workflow](images/transpi_workflow.png)
+![transpi workflow](../images/transpi_workflow.png)
  
 **Figure 3:** Nextflow workflow diagram. (Rivera 2021).  
 Image Source: https://github.com/PalMuc/TransPi/blob/master/README.md
@@ -82,17 +82,3 @@ Make sure that after you are done with the module, close the tab that appeared w
 - If you are unable to create a bucket using the `gsutil mb` command, check your `nextflow-service-account` roles. Make sure that you have `Storage Admin` added.
 - If you are trying to execute a terminal command in a Jupyter code cell and it is not working, make sure that you have an `!` before the command.
     - e.g., `mkdir example-1` -> `!mkdir example-1`
-
-## **Funding** 
-
-MDIBL Computational Biology Core efforts are supported by two Institutional Development Awards (IDeA) from the National Institute of General Medical Sciences of the National Institutes of Health under grant numbers P20GM103423 and P20GM104318.
-
-## **License for Data** 
-
-Text and materials are licensed under a Creative Commons CC-BY-NC-SA license. The license allows you to copy, remix and redistribute any of our publicly available materials, under the condition that you attribute the work (details in the license) and do not make profits from it. More information is available [here](https://tilburgsciencehub.com/about).
-
-![Creative commons license](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)
-
-This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/)  
-
-The TransPi Nextflow workflow was developed and released by Ramon Rivera and can be obtained from its [GitHub repository](https://github.com/PalMuc/TransPi)
