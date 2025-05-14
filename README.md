@@ -30,10 +30,10 @@ Once a new transcriptome is generated, assessed, and refined, it must be annotat
 
 ## **Workflow Diagrams**
 
-![transpi workflow](images/transpi_workflow.png)
+![nf-core denovotranscript workflow](images/denovotranscript_metro_map.svg)
  
-**Figure 3:** Nextflow workflow diagram. (Rivera 2021).  
-Image Source: https://github.com/PalMuc/TransPi/blob/master/README.md
+**Figure 3:** Nextflow workflow diagram.  
+Image Source: https://nf-co.re/denovotranscript/dev/
 
 Explanation of which notebooks execute which processes:
 
