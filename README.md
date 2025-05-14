@@ -28,7 +28,7 @@ Transcriptome assembly is the broad term used to describe the process of estimat
 
 Once a new transcriptome is generated, assessed, and refined, it must be annotated with putative functional assignments to be of use in subsequent functional studies.  Functional annotation is accomplished through a combination of assignment of homology-based and ab initio methods. The most well-established homology-based processes are the combination of protein-coding sequence prediction followed by protein sequence alignment to databases of known proteins, especially those from human or common model organisms. Ab initio methods use computational models of various features (e.g., known protein domains, signal peptides, or peptide modification sites) to characterize either the transcript or its predicted protein product. This training module will cover multiple approaches to the annotation of assembled transcriptomes.
 
-## **Workflow Diagrams**
+## **Workflow Diagram**
 
 ![nf-core denovotranscript workflow](images/denovotranscript_metro_map.svg)
  

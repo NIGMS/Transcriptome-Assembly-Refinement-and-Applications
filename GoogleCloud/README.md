@@ -3,7 +3,7 @@
 + [Overview](#overview)
 + [Learning goals](#learning-goals)
 + [Biological Problem](#biological-problem)
-+ [Workflow Diagrams](#workflow-diagrams)
++ [Architecture Diagram](#architecture-diagram)
 + [Data](#data)
 + [Troubleshooting](#troubleshooting)
 + [Funding](#funding)
@@ -28,12 +28,10 @@ Transcriptome assembly is the broad term used to describe the process of estimat
 
 Once a new transcriptome is generated, assessed, and refined, it must be annotated with putative functional assignments to be of use in subsequent functional studies.  Functional annotation is accomplished through a combination of assignment of homology-based and ab initio methods. The most well-established homology-based processes are the combination of protein-coding sequence prediction followed by protein sequence alignment to databases of known proteins, especially those from human or common model organisms. Ab initio methods use computational models of various features (e.g., known protein domains, signal peptides, or peptide modification sites) to characterize either the transcript or its predicted protein product. This training module will cover multiple approaches to the annotation of assembled transcriptomes.
 
-## **Workflow Diagrams**
+## **Architecture Diagram**
 
-![transpi workflow](images/transpi_workflow.png)
- 
-**Figure 3:** Nextflow workflow diagram. (Rivera 2021).  
-Image Source: https://github.com/PalMuc/TransPi/blob/master/README.md
+![nf-core workflow](images/Transcriptome_Assembly_Maine_GCP.svg)
+
 
 Explanation of which notebooks execute which processes:
 
