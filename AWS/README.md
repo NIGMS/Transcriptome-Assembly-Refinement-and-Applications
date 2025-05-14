@@ -74,11 +74,11 @@ Make sure that after you are done with the module, close the tab that appeared w
 
 ## **Troubleshooting**
 - If a quiz is not rendering:
-    - Make sure the `pip install` cell was executed in Submodule 00.
+    - Make sure the `pip install` cell was executed in Submodule 1.
     - Try re-executing `from jupytercards import display_flashcards` or `from jupyterquiz import display_quiz` depending on the quiz type. 
 - If a file/directory is not able to be found, make sure that you are in the right directory. If the notebook is idle for a long time, gets reloaded, or restarted, you will need to re-run Step 1 of the notebook. (`%cd /home/jupyter`)
 - Sometimes, Nextflow will print `WARN:` followed by the warning. These are okay and should not produce any errors.
 - Sometimes Nextflow will print `Waiting for file transfers to complete`. This may take a few minutes, but is nothing to worry about.
-- If you are unable to create a bucket using the `gsutil mb` command, check your `nextflow-service-account` roles. Make sure that you have `Storage Admin` added.
+- If you are unable to interact with your s3 bucket using the `aws s3` command, check your `nextflow-service-account` roles. Make sure that you have `Storage Admin` added.
 - If you are trying to execute a terminal command in a Jupyter code cell and it is not working, make sure that you have an `!` before the command.
     - e.g., `mkdir example-1` -> `!mkdir example-1`
