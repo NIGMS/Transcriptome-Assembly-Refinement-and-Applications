@@ -121,6 +121,7 @@ workflow DENOVOTRANSCRIPT {
         ch_multiqc_files = ch_multiqc_files.mix(FASTQC_FINAL.out.zip.collect{it[1]})
         ch_versions = ch_versions.mix(FASTQC_FINAL.out.versions)
     }
+    }
 
     if (!params.qc_only) {
 
@@ -337,7 +338,7 @@ workflow DENOVOTRANSCRIPT {
         }
 
     }
-}
+
     //
     // Collate and save software versions
     //
