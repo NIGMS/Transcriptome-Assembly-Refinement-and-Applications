@@ -112,3 +112,5 @@ if util_path not in sys.path:
 
 from gemini import run_gemini_widget, create_gemini_chat_widget 
 from IPython.display import display
+
+run_gemini_widget()
