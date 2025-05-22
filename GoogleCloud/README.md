@@ -95,3 +95,22 @@ When you are finished running code, you can turn off your virtual machine to pre
 - If you are unable to interact with your Google Cloud Storage bucket using the `gsutil` command, check your `nextflow-service-account` roles. Make sure that you have `Storage Admin` added.
 - If you are trying to execute a terminal command in a Jupyter code cell and it is not working, make sure that you have an `!` before the command.
     - e.g., `mkdir example-1` -> `!mkdir example-1`
+ 
+## Gemini (Optional)
+
+Generative AI is available for this tutorial in the form of Gemini if you would like to use it. To run it, please reference Submodule 1, or run the following code within a submodule notebook.
+
+```!pip install -q google-generativeai google-cloud-secret-manager
+!pip install -q git+https://github.com/NIGMS/NIGMS-Sandbox-Repository-Template.git#subdirectory=llm_integrations
+!pip install -q ipywidgets
+
+import sys
+import os
+util_path = os.path.join(os.getcwd(), 'util')
+if util_path not in sys.path:
+    sys.path.append(util_path)
+
+from gemini import run_gemini_widget, create_gemini_chat_widget 
+from IPython.display import display
+
+run_gemini_widget()
