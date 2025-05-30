@@ -79,3 +79,20 @@ Make sure that after you are done with the module, close the tab that appeared w
 - If you are unable to interact with your s3 bucket using the `aws s3` command, check your `nextflow-service-account` roles. Make sure that you have `Storage Admin` added.
 - If you are trying to execute a terminal command in a Jupyter code cell and it is not working, make sure that you have an `!` before the command.
     - e.g., `mkdir example-1` -> `!mkdir example-1`
+
+## AWS Bedrock (Optional)
+
+Generative AI is available for this tutorial if you would like to use it. To run it, please reference Submodule 1, or run the following code within a submodule notebook.
+
+```!pip install -q ipywidgets
+import sys
+import os
+util_path = os.path.join(os.getcwd(), 'util')
+if util_path not in sys.path:
+    sys.path.append(util_path)
+
+# Import the display_widgets function from your Python file
+from genai import display_widgets
+
+# Call the function to display the widgets
+display_widgets()
