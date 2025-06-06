@@ -1,11 +1,16 @@
+# Transcriptome Assembly Module
+
+<br>
+<p align="center">
+    <img src="images/MDI-course-card-2.png" width="400" />
+</p>
+
 ## Contents
 
 + [Overview](#overview)
 + [Learning goals](#learning-goals)
 + [Biological Problem](#biological-problem)
-+ [Workflow Diagrams](#workflow-diagrams)
 + [Data](#data)
-+ [Troubleshooting](#troubleshooting)
 + [Funding](#funding)
 + [License for Data](#license-for-data)
 
